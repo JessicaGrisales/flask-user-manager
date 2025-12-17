@@ -1,0 +1,26 @@
+name: Flask-user-manager
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        # Installation Python
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.14.2"
+        # Dépendences
+      - name: Install dependencies
+        run: 
+          source .venv/bin/activate
+          requirements.txt
+          install flake
