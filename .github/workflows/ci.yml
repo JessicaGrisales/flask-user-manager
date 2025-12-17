@@ -19,10 +19,16 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.14.2"
+          
         # Dépendences
-      
       - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Faire test unitaire
         run: python tests.py
+
+        # Linting (qualité du code)
+      - name: Lint with flake8
+        run: |
+          source .venv/bin/activate
+          flake8 .
